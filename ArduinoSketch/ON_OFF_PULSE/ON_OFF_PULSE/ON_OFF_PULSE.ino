@@ -23,6 +23,8 @@ void setup()
 {
   Serial.begin(115200); // must be same baudrate with the Serial Monitor
  
+  WiFi.setSleepMode(WIFI_NONE_SLEEP);
+  WiFi.mode(WIFI_STA);
   pinMode(RELAY,OUTPUT);
   digitalWrite(RELAY, HIGH);
 
@@ -53,9 +55,10 @@ void setup()
  
   // Print the IP address
   Serial.print("Use this URL to connect: ");
-  Serial.print("https://10.0.0.80/");
   Serial.print(WiFi.localIP());
   Serial.println("/");
+  Serial.print("MAC: ");
+  Serial.println(WiFi.macAddress());
  
 }
  
